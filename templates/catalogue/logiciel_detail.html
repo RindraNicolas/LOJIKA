@@ -1,0 +1,292 @@
+﻿
+{% load static %}
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>{{ logiciel.nom }} | LOJIKA</title>
+
+    <meta name="description" content="{{ logiciel.description }}">
+
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+
+<body>
+
+    <!-- EN-TÊTE -->
+
+    <header class="entete">
+        <div class="conteneur navigation">
+
+            <a href="{% url 'accueil' %}" class="logo">
+                LOJIKA<span>.</span>
+            </a>
+
+            <nav>
+                <a href="{% url 'accueil' %}">Accueil</a>
+                <a href="{% url 'vinideo' %}">VINIDEO</a>
+                <a href="{% url 'efambolena' %}">eFambolena</a>
+                <a href="{% url 'genealogie' %}">Généalogie</a>
+            </nav>
+
+        </div>
+    </header>
+
+
+    <main>
+
+        <!-- PRÉSENTATION DU LOGICIEL -->
+
+        <section class="logiciel-hero {{ logiciel.theme }}">
+
+            <div class="conteneur">
+
+                <a href="{% url 'accueil' %}" class="retour">
+                    ← Retour à l'accueil
+                </a>
+
+                <div class="logiciel-icone">
+                    {{ logiciel.icone }}
+                </div>
+
+                <span class="surtitre">
+                    {{ logiciel.categorie }}
+                </span>
+
+                <h1>{{ logiciel.nom }}</h1>
+
+                <h2>{{ logiciel.accroche }}</h2>
+
+                <p>
+                    {{ logiciel.description }}
+                </p>
+
+                <a href="#fonctionnalites" class="bouton-principal">
+                    Découvrir les fonctionnalités
+                </a>
+
+            </div>
+
+        </section>
+
+
+        <!-- FONCTIONNALITÉS -->
+
+        <section class="detail-fonctionnalites" id="fonctionnalites">
+
+            <div class="conteneur">
+
+                <div class="section-titre">
+
+                    <span class="surtitre">
+                        DÉCOUVRIR LE LOGICIEL
+                    </span>
+
+                    <h2>
+                        Fonctionnalités principales
+                    </h2>
+
+                    <p>
+                        Découvrez ce que {{ logiciel.nom }}
+                        vous propose.
+                    </p>
+
+                </div>
+
+                <div class="liste-fonctionnalites">
+
+                    {% for point in logiciel.points %}
+
+                    <article class="fonctionnalite">
+
+                        <span class="fonctionnalite-icone">
+                            ✓
+                        </span>
+
+                        <p>{{ point }}</p>
+
+                    </article>
+
+                    {% empty %}
+
+                    <p>
+                        Les fonctionnalités seront bientôt disponibles.
+                    </p>
+
+                    {% endfor %}
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- GALERIE DES CAPTURES D'ÉCRAN -->
+
+        {% if captures %}
+
+        <section class="section-captures" id="captures">
+
+            <div class="conteneur">
+
+                <div class="section-titre">
+
+                    <span class="surtitre">
+                        EN IMAGES
+                    </span>
+
+                    <h2>
+                        Découvrez {{ logiciel.nom }}
+                    </h2>
+
+                    <p>
+                        Quelques aperçus de l'interface et
+                        des fonctionnalités du logiciel.
+                    </p>
+
+                </div>
+
+                <div class="grille-captures">
+
+                    {% for capture in captures %}
+
+                    <article class="carte-capture">
+
+                        <a
+                            href="{{ capture.image.url }}"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            class="lien-capture"
+                            title="Agrandir cette capture"
+                        >
+
+                            <img
+                                src="{{ capture.image.url }}"
+                                alt="{% if capture.legende %}{{ capture.legende }}{% else %}Capture d'écran de {{ logiciel.nom }}{% endif %}"
+                                loading="lazy"
+                            >
+
+                            <span class="capture-agrandir">
+                                Agrandir l'image
+                            </span>
+
+                        </a>
+
+                        {% if capture.legende %}
+
+                        <div class="legende-capture">
+                            {{ capture.legende }}
+                        </div>
+
+                        {% endif %}
+
+                    </article>
+
+                    {% endfor %}
+
+                </div>
+
+            </div>
+
+        </section>
+
+        {% endif %}
+
+        <!-- TÉLÉCHARGEMENT -->
+
+        <section class="section-telechargement">
+
+            <div class="conteneur">
+
+                <h2>
+                    Télécharger {{ logiciel.nom }}
+                </h2>
+
+                {% if logiciel.fichier_installation %}
+
+                    <p>
+                        Téléchargez la dernière version de
+                        {{ logiciel.nom }}.
+                    </p>
+
+                    {% if logiciel.version %}
+                        <p>
+                            Version : {{ logiciel.version }}
+                        </p>
+                    {% endif %}
+
+                    {% if logiciel.date_publication %}
+                        <p>
+                            Publié le :
+                            {{ logiciel.date_publication|date:"d/m/Y" }}
+                        </p>
+                    {% endif %}
+
+                    <a
+                        href="{{ logiciel.fichier_installation.url }}"
+                        class="bouton-principal"
+                        download
+                    >
+                        Télécharger {{ logiciel.nom }}
+                    </a>
+
+                    {% if logiciel.notes_version %}
+                        <div class="notes-version">
+                            <h3>Notes de version</h3>
+                            <p>{{ logiciel.notes_version|linebreaksbr }}</p>
+                        </div>
+                    {% endif %}
+
+                {% else %}
+
+                    <p>
+                        Le fichier d'installation de ce logiciel
+                        sera bientôt disponible.
+                    </p>
+
+                    <span class="telechargement-indisponible">
+                        Téléchargement en préparation
+                    </span>
+
+                {% endif %}
+
+            </div>
+
+        </section>
+
+
+    </main>
+
+    <!-- PIED DE PAGE -->
+
+    <footer>
+
+        <div class="conteneur pied-page">
+
+            <div>
+
+                <a href="{% url 'accueil' %}" class="logo logo-footer">
+                    LOJIKA<span>.</span>
+                </a>
+
+                <p>
+                    Ny teknolojia manamora ny fiainana.
+                </p>
+
+            </div>
+
+            <p class="copyright">
+                © {% now "Y" %} LOJIKA.
+                Tous droits réservés.
+            </p>
+
+        </div>
+
+    </footer>
+
+</body>
+</html>

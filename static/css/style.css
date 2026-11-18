@@ -1,0 +1,602 @@
+
+/* =====================================================
+   LOJIKA - FEUILLE DE STYLE PRINCIPALE
+   Ny teknolojia manamora ny fiainana.
+===================================================== */
+
+:root {
+    --bleu-fonce: #102B50;
+    --bleu-principal: #2463A5;
+    --bleu-clair: #EAF3FC;
+    --blanc: #FFFFFF;
+    --texte: #26364A;
+    --gris: #718096;
+    --fond: #F7F9FC;
+    --bordure: #E5EBF2;
+}
+
+/* RESET */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: "Segoe UI", Arial, sans-serif;
+    color: var(--texte);
+    background: var(--blanc);
+    line-height: 1.6;
+}
+
+.conteneur {
+    width: min(1150px, 90%);
+    margin: auto;
+}
+
+/* =====================================================
+   NAVIGATION
+===================================================== */
+
+.entete {
+    background: var(--blanc);
+    border-bottom: 1px solid var(--bordure);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+.navigation {
+    min-height: 76px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 25px;
+}
+
+.logo {
+    color: var(--bleu-fonce);
+    font-size: 30px;
+    font-weight: 800;
+    text-decoration: none;
+    letter-spacing: -1px;
+}
+
+.logo span {
+    color: #3498DB;
+}
+
+.navigation nav {
+    display: flex;
+    align-items: center;
+    gap: 30px;
+}
+
+.navigation nav a {
+    text-decoration: none;
+    color: var(--texte);
+    font-size: 14px;
+    font-weight: 600;
+    transition: color 0.2s ease;
+}
+
+.navigation nav a:hover {
+    color: var(--bleu-principal);
+}
+
+/* =====================================================
+   SECTION ACCUEIL
+===================================================== */
+
+.hero {
+    background:
+        radial-gradient(
+            circle at 85% 20%,
+            #285B8B 0,
+            transparent 32%
+        ),
+        linear-gradient(
+            120deg,
+            #102B50,
+            #174875
+        );
+
+    color: var(--blanc);
+    padding: 110px 0 120px;
+}
+
+.hero-contenu {
+    max-width: 1150px;
+}
+
+.surtitre {
+    display: inline-block;
+    color: #4C91CE;
+    font-size: 12px;
+    font-weight: 800;
+    letter-spacing: 2px;
+    margin-bottom: 15px;
+}
+
+.hero .surtitre {
+    color: #A9D4FA;
+}
+
+.hero h1 {
+    max-width: 750px;
+    font-size: clamp(36px, 5vw, 58px);
+    line-height: 1.15;
+    margin-bottom: 20px;
+}
+
+.slogan {
+    font-size: 21px;
+    font-weight: 600;
+    color: #A9D4FA;
+    margin-bottom: 15px;
+}
+
+.hero-description {
+    max-width: 600px;
+    color: #D5E5F5;
+    font-size: 16px;
+    margin-bottom: 32px;
+}
+
+.bouton-principal {
+    display: inline-block;
+    padding: 14px 25px;
+    background: var(--blanc);
+    color: var(--bleu-fonce);
+    border-radius: 7px;
+    text-decoration: none;
+    font-weight: 700;
+    transition: 0.2s ease;
+}
+
+.bouton-principal:hover {
+    background: #DCEEFF;
+    transform: translateY(-2px);
+}
+
+/* =====================================================
+   SECTION LOGICIELS
+===================================================== */
+
+.section-logiciels {
+    padding: 85px 0;
+    background: var(--fond);
+}
+
+.section-titre {
+    text-align: center;
+    margin-bottom: 45px;
+}
+
+.section-titre h2,
+.section-apropos h2 {
+    color: var(--bleu-fonce);
+    font-size: 34px;
+    margin-bottom: 10px;
+}
+
+.section-titre p {
+    color: var(--gris);
+}
+
+.grille-logiciels {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 28px;
+    max-width: 850px;
+    margin: auto;
+}
+
+.carte-logiciel {
+    background: var(--blanc);
+    padding: 32px 28px;
+    border: 1px solid var(--bordure);
+    border-radius: 12px;
+    transition:
+        transform 0.2s ease,
+        box-shadow 0.2s ease;
+}
+
+.carte-logiciel:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 30px rgba(16, 43, 80, 0.09);
+}
+
+.icone-logiciel {
+    width: 58px;
+    height: 58px;
+    background: var(--bleu-clair);
+    color: var(--bleu-principal);
+    border-radius: 12px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 28px;
+    margin-bottom: 20px;
+}
+
+.categorie {
+    color: var(--bleu-principal);
+    font-size: 11px;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.carte-logiciel h3 {
+    color: var(--bleu-fonce);
+    font-size: 22px;
+    margin: 8px 0;
+}
+
+.carte-logiciel p {
+    color: var(--gris);
+    font-size: 14px;
+    min-height: 90px;
+}
+
+.lien-logiciel {
+    display: inline-block;
+    margin-top: 18px;
+    color: var(--bleu-principal);
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 700;
+}
+
+.lien-logiciel:hover {
+    text-decoration: underline;
+}
+
+/* =====================================================
+   SECTIONS DE PRÉSENTATION
+===================================================== */
+
+.section-apropos {
+    padding: 85px 0;
+    border-bottom: 1px solid var(--bordure);
+}
+
+.section-apropos h2 {
+    max-width: 700px;
+}
+
+.section-apropos p {
+    max-width: 750px;
+    color: var(--gris);
+    font-size: 15px;
+}
+
+/* =====================================================
+   PIED DE PAGE
+===================================================== */
+
+footer {
+    background: var(--bleu-fonce);
+    color: #D5E5F5;
+    padding: 38px 0;
+}
+
+.pied-page {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 25px;
+}
+
+.logo-footer {
+    color: var(--blanc);
+}
+
+.pied-page p {
+    font-size: 13px;
+}
+
+.copyright {
+    color: #A9BCD0;
+}
+
+/* =====================================================
+   RESPONSIVE - TABLETTES
+===================================================== */
+
+@media (max-width: 900px) {
+
+    .grille-logiciels {
+        gap: 18px;
+    }
+
+    .hero h1 {
+        font-size: 45px;
+    }
+
+}
+
+/* =====================================================
+   RESPONSIVE - TÉLÉPHONES
+===================================================== */
+
+@media (max-width: 600px) {
+
+    .navigation {
+        flex-direction: column;
+        padding: 15px 0;
+    }
+
+    .navigation nav {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 15px;
+    }
+
+    .hero {
+        padding: 75px 0;
+    }
+
+    .hero h1 {
+        font-size: 36px;
+    }
+
+    .slogan {
+        font-size: 18px;
+    }
+
+    .grille-logiciels {
+        grid-template-columns: 1fr;
+    }
+
+    .carte-logiciel p {
+        min-height: auto;
+    }
+
+    .section-titre h2,
+    .section-apropos h2 {
+        font-size: 28px;
+    }
+
+    .pied-page {
+        flex-direction: column;
+        text-align: center;
+    }
+
+}
+
+/* =====================================================
+   PAGES INDIVIDUELLES DES LOGICIELS
+===================================================== */
+
+.logiciel-hero {
+    padding: 75px 0 90px;
+    color: white;
+}
+
+.logiciel-hero.vinideo {
+    background: linear-gradient(120deg, #102B50, #2463A5);
+}
+
+.logiciel-hero.efambolena {
+    background: linear-gradient(120deg, #174B38, #27845B);
+}
+
+.logiciel-hero.genealogie {
+    background: linear-gradient(120deg, #123D32, #287A59);
+}
+
+.retour {
+    display: inline-block;
+    color: white;
+    text-decoration: none;
+    margin-bottom: 35px;
+    font-size: 14px;
+}
+
+.retour:hover {
+    text-decoration: underline;
+}
+
+.logiciel-icone {
+    width: 70px;
+    height: 70px;
+    background: rgba(255,255,255,0.16);
+    border-radius: 16px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 35px;
+    margin-bottom: 25px;
+}
+
+.logiciel-hero .surtitre {
+    color: #D1E8FF;
+}
+
+.logiciel-hero h1 {
+    font-size: clamp(40px, 6vw, 58px);
+    margin-bottom: 10px;
+}
+
+.logiciel-hero h2 {
+    font-size: 24px;
+    margin-bottom: 15px;
+}
+
+.logiciel-hero p {
+    max-width: 700px;
+    color: #E0EAF4;
+    margin-bottom: 30px;
+}
+
+.logiciel-hero .bouton-principal {
+    margin-top: 5px;
+}
+
+/* FONCTIONNALITÉS */
+
+.detail-fonctionnalites {
+    padding: 80px 0;
+    background: var(--fond);
+}
+
+.liste-fonctionnalites {
+    max-width: 750px;
+    margin: auto;
+    display: grid;
+    gap: 15px;
+}
+
+.fonctionnalite {
+    display: flex;
+    align-items: center;
+    gap: 18px;
+    padding: 20px;
+    background: white;
+    border: 1px solid var(--bordure);
+    border-radius: 10px;
+}
+
+.fonctionnalite p {
+    color: var(--texte);
+    font-size: 15px;
+}
+
+.fonctionnalite-icone {
+    min-width: 35px;
+    height: 35px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--bleu-clair);
+    color: var(--bleu-principal);
+    border-radius: 50%;
+    font-weight: bold;
+}
+
+/* TÉLÉCHARGEMENT */
+
+.section-telechargement {
+    padding: 75px 0;
+    text-align: center;
+}
+
+.section-telechargement h2 {
+    color: var(--bleu-fonce);
+    font-size: 30px;
+    margin-bottom: 12px;
+}
+
+.section-telechargement p {
+    color: var(--gris);
+    margin-bottom: 20px;
+}
+
+.telechargement-indisponible {
+    display: inline-block;
+    padding: 12px 22px;
+    background: #EDF1F5;
+    color: #64748B;
+    border-radius: 7px;
+    font-weight: 600;
+    font-size: 13px;
+}
+
+/* RESPONSIVE */
+
+@media (max-width: 600px) {
+
+    .logiciel-hero {
+        padding: 55px 0 70px;
+    }
+
+    .logiciel-hero h2 {
+        font-size: 20px;
+    }
+
+    .fonctionnalite {
+        padding: 15px;
+    }
+
+}
+
+
+/* =====================================================
+   GALERIE DES CAPTURES D'ÉCRAN
+===================================================== */
+
+.section-captures {
+    padding: 85px 0;
+    background: #FFFFFF;
+}
+
+.grille-captures {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 28px;
+    margin-top: 40px;
+}
+
+.carte-capture {
+    overflow: hidden;
+    background: #FFFFFF;
+    border: 1px solid #E1E8F0;
+    border-radius: 12px;
+    box-shadow: 0 5px 18px rgba(16, 43, 80, 0.06);
+}
+
+.lien-capture {
+    display: block;
+    position: relative;
+    overflow: hidden;
+    background: #F1F4F8;
+}
+
+.lien-capture img {
+    display: block;
+    width: 100%;
+    height: 300px;
+    object-fit: contain;
+    transition: transform 0.3s ease;
+}
+
+.lien-capture:hover img {
+    transform: scale(1.03);
+}
+
+.capture-agrandir {
+    position: absolute;
+    bottom: 12px;
+    right: 12px;
+    padding: 8px 13px;
+    border-radius: 6px;
+    background: rgba(16, 43, 80, 0.88);
+    color: #FFFFFF;
+    font-size: 13px;
+}
+
+.legende-capture {
+    padding: 16px 18px;
+    color: #102B50;
+    font-weight: 600;
+}
+
+@media (max-width: 700px) {
+
+    .grille-captures {
+        grid-template-columns: 1fr;
+    }
+
+    .lien-capture img {
+        height: 230px;
+    }
+
+}
+

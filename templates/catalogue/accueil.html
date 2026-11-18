@@ -1,0 +1,197 @@
+
+{% load static %}
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>LOJIKA | Ny teknolojia manamora ny fiainana</title>
+
+    <meta name="description"
+          content="LOJIKA présente et distribue VINIDEO, eFambolena et Généalogie familiale V10, des logiciels conçus pour faciliter votre quotidien.">
+
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+
+<body>
+
+    <!-- EN-TÊTE -->
+
+    <header class="entete">
+        <div class="conteneur navigation">
+
+            <a href="{% url 'accueil' %}" class="logo">
+                LOJIKA<span>.</span>
+            </a>
+
+            <nav>
+                <a href="#accueil">Accueil</a>
+                <a href="#logiciels">Nos logiciels</a>
+                <a href="#apropos">À propos</a>
+                <a href="#contact">Contact</a>
+            </nav>
+
+        </div>
+    </header>
+
+
+    <main>
+
+        <!-- ACCUEIL -->
+
+        <section class="hero" id="accueil">
+
+            <div class="conteneur hero-contenu">
+
+                <span class="surtitre">
+                    BIENVENUE CHEZ LOJIKA
+                </span>
+
+                <h1>
+                    Des solutions numériques
+                    pour simplifier votre quotidien.
+                </h1>
+
+                <p class="slogan">
+                    Ny teknolojia manamora ny fiainana.
+                </p>
+
+                <p class="hero-description">
+                    Découvrez nos logiciels conçus pour vous accompagner
+                    dans vos activités multimédias, agricoles et familiales.
+                </p>
+
+                <a href="#logiciels" class="bouton-principal">
+                    Découvrir nos logiciels
+                </a>
+
+            </div>
+
+        </section>
+
+
+        <!-- NOS TROIS LOGICIELS -->
+
+        <section class="section-logiciels" id="logiciels">
+
+            <div class="conteneur">
+
+                <div class="section-titre">
+
+                    <span class="surtitre">
+                        NOS SOLUTIONS
+                    </span>
+
+                    <h2>
+                        Découvrez nos logiciels
+                    </h2>
+
+                    <p>
+                        Trois applications conçues pour répondre
+                        à différents besoins du quotidien.
+                    </p>
+
+                </div>
+
+
+                <div class="grille-logiciels">
+
+                    {% for logiciel in logiciels %}
+
+                    <article class="carte-logiciel">
+
+                        <div class="icone-logiciel">
+                            {{ logiciel.icone }}
+                        </div>
+
+                        <span class="categorie">
+                            {{ logiciel.categorie }}
+                        </span>
+
+                        <h3>
+                            {{ logiciel.nom }}
+                        </h3>
+
+                        <p>
+                            {{ logiciel.description }}
+                        </p>
+
+                        <a href="{% url logiciel.slug %}" class="lien-logiciel">
+
+                            Découvrir {{ logiciel.nom }} →
+                        </a>
+
+                    </article>
+
+                    {% endfor %}
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- À PROPOS DE LOJIKA -->
+
+        <section class="section-apropos" id="apropos">
+
+            <div class="conteneur">
+
+                <span class="surtitre">
+                    À PROPOS
+                </span>
+
+                <h2>
+                    LOJIKA, la technologie à votre portée.
+                </h2>
+
+                <p>
+                    LOJIKA est une plateforme de présentation
+                    et de distribution de logiciels.
+                    Notre objectif est de proposer des solutions
+                    numériques pratiques, accessibles et utiles
+                    dans différents domaines de la vie quotidienne.
+                </p>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <!-- PIED DE PAGE -->
+
+    <footer id="contact">
+
+        <div class="conteneur pied-page">
+
+            <div>
+
+                <a href="{% url 'accueil' %}"
+                   class="logo logo-footer">
+
+                    LOJIKA<span>.</span>
+
+                </a>
+
+                <p>
+                    Ny teknolojia manamora ny fiainana.
+                </p>
+
+            </div>
+
+            <p class="copyright">
+                © {% now "Y" %} LOJIKA.
+                Tous droits réservés.
+            </p>
+
+        </div>
+
+    </footer>
+
+</body>
+</html>
